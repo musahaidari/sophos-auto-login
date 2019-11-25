@@ -1,0 +1,22 @@
+{
+  "name": "sophos-auto-login",
+  "version": "1.0.0",
+  "description": "Sometimes it is a hassle to login to sophos firewall everytime it logs out, or when you have a background job ongoing and PC is locked. This software solves this problem for you by automatically checking if you are logged in and if not logs you in automatically.",
+  "main": "index.js",
+  "keywords": [
+    "automation",
+    "firewall",
+    "sophos",
+    "auto-login"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^2.0.0",
+    "readline-sync": "^1.4.10",
+    "request": "^2.88.0"
+  }
+}
