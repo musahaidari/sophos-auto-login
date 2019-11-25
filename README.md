@@ -1,5 +1,7 @@
 # Sophos auto login client
-Sometimes it is a hassle to login to sophos firewall everytime it logs out, or when you have a background job ongoing and PC is locked. This software solves this problem for you by automatically checking if you are logged in and if not logs you in automatically.
+Sometimes it is a hassle to login to sophos firewall everytime it logs out, or when you have a background job ongoing and PC is locked. This software solves this problem for you by automatically checking if you are logged in and if not logs you in automatically. 
+
+Referenced from https://github.com/altrosyn/sophos-client/blob/master/app.js
 
 ## How to set up
 To set us this project do the followings:

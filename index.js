@@ -4,10 +4,6 @@ const eventEmitter = new events.EventEmitter();
 const request = require('request');
 const config = require('./config');
 
-var CREDS = {};
-CREDS.username = config.username;
-CREDS.password = config.password;
-
 let browser;
 async function login() {
   console.log('Logging in ...'+ new Date());
@@ -31,10 +27,10 @@ async function login() {
   await page.goto(url);
 
   await page.click(USERNAME_SELECTOR);
-  await page.keyboard.type(CREDS.username);
+  await page.keyboard.type(config.username);
 
   await page.click(PASSWORD_SELECTOR);
-  await page.keyboard.type(CREDS.password);
+  await page.keyboard.type(config.password);
 
   await page.click(BUTTON_SELECTOR);
   await page.waitFor(2000);
