@@ -1,12 +1,11 @@
 const puppeteer = require('puppeteer');
-const events = require('events');
-const eventEmitter = new events.EventEmitter();
-const request = require('request');
+const eventManager = require('./events').manager;
 const config = require('./config');
+const ping = require('./ping');
 
 let browser;
 async function login() {
-  console.log('Logging in ...'+ new Date());
+  console.log('Logging in ...' + new Date());
   browser = await puppeteer.launch({
     headless: config.heasdlessBrowser,
     executablePath: config.chromePath,
@@ -36,24 +35,15 @@ async function login() {
   await page.waitFor(2000);
 
   await page.screenshot({ path: 'status.png' });
+
+  ping.exec();
 }
 
-setInterval(() => {
-  console.log('Checking the status... ' + new Date());
-  request.get(
-    'https://google.com',
-    function (error, response, body) {
-      if (error) {
-        console.log('Logged out ...'+ new Date());
-        eventEmitter.emit('logged-out');
-        return;
-      }
-      console.log('Ok ...'+ new Date());
-    }
-  );
-}, config.checkInterval);
+eventManager.on('ping', () => {
+  ping.exec();
+});
 
-eventEmitter.on('logged-out', () => {
+eventManager.on('logged-out', () => {
   browser && browser.close();
   login();
 });
