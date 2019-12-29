@@ -31,7 +31,7 @@ const exec = () => {
 const setUpNextPing = () => {
     const timeToWait = lib.rand(config.checkInterval.min, config.checkInterval.max);
     setTimeout(() => {
-        eventManager.emit('ping');
+        eventManager.emit('pinged');
     }, timeToWait);
 }
 

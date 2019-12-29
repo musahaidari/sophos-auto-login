@@ -11,3 +11,7 @@ To set us this project do the followings:
 4. From `config.sample.js` create `config.js` and fill it in with the proper values
 5. In your root folder issue `node index.js`
 
+## Notes
+- Contributions and `pull request`'s are welcome!
+- You can use `pm2` to keep the process running even if you log off from windows
+- You can create `start.cmd` from `start-sample.cmd` and customize it to you own environments, and put its shortcut on the desktop for convenience.
